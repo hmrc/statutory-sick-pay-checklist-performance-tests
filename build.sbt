@@ -1,5 +1,6 @@
 lazy val root = (project in file("."))
   .enablePlugins(GatlingPlugin)
+  .enablePlugins(SbtAutoBuildPlugin)
   .settings(
     name := "statutory-sick-pay-checklist-performance-tests",
     version := "0.1.0-SNAPSHOT",
@@ -8,6 +9,6 @@ lazy val root = (project in file("."))
     scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:postfixOps"),
     // Enabling sbt-auto-build plugin provides DefaultBuildSettings with default `testOptions` from `sbt-settings` plugin.
     // These testOptions are not compatible with `sbt gatling:test`. So we have to override testOptions here.
-    Test / testOptions := Seq.empty,
+    testOptions in Test := Seq.empty,
     libraryDependencies ++= Dependencies.test
   )
