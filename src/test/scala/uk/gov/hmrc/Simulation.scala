@@ -17,9 +17,14 @@
 package uk.gov.hmrc
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
-import uk.gov.hmrc.Requests._
 
 class Simulation extends PerformanceTestRunner {
+
+  journey.zip(journey.tail.map(Some(_)) :+ None).foreach { case (current, nextPage) =>
+    println(current, nextPage)
+    val requests = current.requests(nextPage)
+    setup(s"/${current.url}", current.name).withRequests(requests: _*)
+  }
 
   runSimulation()
 }
