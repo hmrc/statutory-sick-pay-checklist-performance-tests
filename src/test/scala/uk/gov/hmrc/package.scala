@@ -44,7 +44,7 @@ package object hmrc extends ServicesConfiguration {
     FormPage("Sickness End Date Page", "date-sickness-ended", fieldsForDate(sicknessEndDate): _*),
     FormPage("Sickness Caused By Accident Or Disease", "caused-by-accident-or-industrial-disease", "value" -> "true"),
     FormPage("Last Day Worked Before Sickness Page", "when-did-you-last-work", fieldsForDate(lastWorkedDate): _*),
-    FormPage("What Time Did You Finish Page", "what-time-did-you-finish", "value" -> "9am"),
+    FormPage("What Time Did You Finish Page", "what-time-did-you-finish", "time-finished-hour" -> "9", "time-finished-minute" -> "0", "time-finished-ampm" -> "am"),
     FormPage("Do You Know Your Clock Or Payroll Number Page", "do-you-know-your-clock-or-payroll-number", "value" -> "true"),
     FormPage("What Is Your Clock Or Payroll Number Page", "what-is-your-clock-or-payroll-number", "value" -> "cprn"),
     ContentPage("Check Your Answers Page", "check-your-answers"),
